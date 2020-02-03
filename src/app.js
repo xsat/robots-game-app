@@ -10,6 +10,7 @@ import Register from "./pages/register";
 import Game from "./pages/game";
 import Achievements from "./pages/achievements";
 import Leaderboards from "./pages/leaderboards";
+import Matchmaking from "./pages/matchmaking";
 import Logout from "./pages/logout";
 import Lobby from "./pages/lobby";
 import {Cookies} from "react-cookie";
@@ -60,6 +61,13 @@ class App extends React.Component {
                             this.state.player == null
                                 ? <Redirect to="/login"/>
                                 : <Game/>
+                        }
+                    </Route>
+                    <Route path="/matchmaking">
+                        {
+                            this.state.player == null
+                                ? <Redirect to="/login"/>
+                                : <Matchmaking />
                         }
                     </Route>
                     <Route path="/achievements">

@@ -9,9 +9,10 @@ class Leaderboards extends React.Component {
             limit: 5,
             offset: 0,
             total: 0,
-            items: [],
-            skipUpdate: true
+            items: []
         };
+
+        this.skipUpdate = true;
     }
 
     async componentDidMount() {
@@ -30,19 +31,15 @@ class Leaderboards extends React.Component {
             && json.total !== undefined
             && json.items !== undefined
         ) {
-            this.setState({
-                limit: json.limit,
-                offset: json.offset,
-                total: json.total,
-                items: json.items,
-                skipUpdate: true
-            });
+            this.setState(json);
         }
+
+        this.skipUpdate = true;
     }
 
     async componentDidUpdate() {
-        if (this.state.skipUpdate) {
-            this.state.skipUpdate = false;
+        if (this.skipUpdate) {
+            this.skipUpdate = false;
         } else {
             await this.componentDidMount();
         }

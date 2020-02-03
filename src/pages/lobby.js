@@ -11,16 +11,13 @@ class Lobby extends React.Component {
                 <menu>
                     <ul>
                         <li>
-                            <Link to="/game">Matchmaking</Link>
+                            <Link to="/matchmaking">Matchmaking</Link>
                         </li>
                         <li>
                             <Link to="/achievements">Achievements</Link>
                         </li>
                         <li>
                             <Link to="/leaderboards">Leaderboards</Link>
-                        </li>
-                        <li>
-                            <Link to="/settings">Settings</Link>
                         </li>
                     </ul>
                 </menu>
