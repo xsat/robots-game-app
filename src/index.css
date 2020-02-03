@@ -62,6 +62,10 @@ table {
     opacity: 0.1;
 }
 
+.inline {
+    display: inline;
+}
+
 .error {
     color: red;
     padding: 1em 0 0 0;

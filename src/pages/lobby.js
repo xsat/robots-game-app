@@ -7,6 +7,7 @@ class Lobby extends React.Component {
             <React.Fragment>
                 <Link to="/logout">Logout</Link>
                 <h1>Lobby</h1>
+                <hr/>
                 <menu>
                     <ul>
                         <li>

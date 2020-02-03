@@ -1,7 +1,7 @@
 import React from "react";
 import Messages from "../messages";
 import {Cookies} from "react-cookie";
-import {Redirect} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 
 class Login extends React.Component {
     constructor(props) {
@@ -76,29 +76,33 @@ class Login extends React.Component {
         }
 
         return (
-            <form onSubmit={this.handleSubmit}>
-                <ul>
-                    <li>
-                        <label>Username</label>:
-                        <input name="username" type="text"
-                               value={this.state.username}
-                               onChange={this.handleChange}/>
-                        <Messages className="error"
-                                  messages={this.state.errors.username}/>
-                    </li>
-                    <li>
-                        <label>Password</label>:
-                        <input name="password" type="password"
-                               value={this.state.password}
-                               onChange={this.handleChange}/>
-                        <Messages className="error"
-                                  messages={this.state.errors.password}/>
-                    </li>
-                    <li>
-                        <input type="submit" value="Log In"/>
-                    </li>
-                </ul>
-            </form>
+            <React.Fragment>
+                <Link to="/register">Register</Link>
+                <h1>Lobby</h1>
+                <form onSubmit={this.handleSubmit}>
+                    <ul>
+                        <li>
+                            <label>Username</label>:
+                            <input name="username" type="text"
+                                   value={this.state.username}
+                                   onChange={this.handleChange}/>
+                            <Messages className="error"
+                                      messages={this.state.errors.username}/>
+                        </li>
+                        <li>
+                            <label>Password</label>:
+                            <input name="password" type="password"
+                                   value={this.state.password}
+                                   onChange={this.handleChange}/>
+                            <Messages className="error"
+                                      messages={this.state.errors.password}/>
+                        </li>
+                        <li>
+                            <input type="submit" value="Log In"/>
+                        </li>
+                    </ul>
+                </form>
+            </React.Fragment>
         );
     }
 }

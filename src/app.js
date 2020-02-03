@@ -38,7 +38,6 @@ class App extends React.Component {
         } else {
             this.setState({isLoaded: true})
         }
-
     }
 
     render() {
@@ -54,7 +53,8 @@ class App extends React.Component {
                     <Route path="/logout" component={Logout}/>
                     <Route path="/login" component={Login}/>
                     <Route path="/register" component={Register}/>
-                    <Route path="/leaderboards" component={Leaderboards}/>
+                    <Route path="/leaderboards/:page" component={Leaderboards} />
+                    <Route path="/leaderboards" component={Leaderboards} />
                     <Route path="/game">
                         {
                             this.state.player == null
