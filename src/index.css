@@ -66,6 +66,10 @@ table {
     display: inline;
 }
 
+.active {
+    color: #999;
+}
+
 .error {
     color: red;
     padding: 1em 0 0 0;
@@ -82,4 +86,9 @@ table {
 
 .player {
     max-width: 50%;
+}
+
+.history {
+    max-height: 300px;
+    overflow-y: auto;
 }
