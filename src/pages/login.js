@@ -77,8 +77,8 @@ class Login extends React.Component {
 
         return (
             <React.Fragment>
-                <Link to="/register">Register</Link>
-                <h1>Lobby</h1>
+                <Link to="/register">Sign Up</Link> | <Link to="/leaderboards">Leaderboards</Link>
+                <h1>Sign In</h1>
                 <form onSubmit={this.handleSubmit}>
                     <ul>
                         <li>
@@ -98,7 +98,7 @@ class Login extends React.Component {
                                       messages={this.state.errors.password}/>
                         </li>
                         <li>
-                            <input type="submit" value="Log In"/>
+                            <input type="submit" value="Sign In"/>
                         </li>
                     </ul>
                 </form>
