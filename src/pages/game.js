@@ -61,7 +61,7 @@ class Game extends React.Component {
         this.interval = setInterval(async () => {
             const token = (new Cookies()).get('token');
             const response = await fetch('http://robots-game-api.local/v1/player/game', {
-                method: 'POST',
+                method: 'PUT',
                 mode: 'cors',
                 headers: {Authorization: 'Bearer ' + token}
             });
@@ -72,9 +72,14 @@ class Game extends React.Component {
     }
 
     componentWillUnmount() {
-        if (this.interval) {
-            clearInterval(this.interval);
-        }
+        clearInterval(this.interval);
+
+        const token = (new Cookies()).get('token');
+        fetch('http://robots-game-api.local/v1/player/game', {
+            method: 'DELETE',
+            mode: 'cors',
+            headers: {Authorization: 'Bearer ' + token}
+        });
     }
 
     render() {

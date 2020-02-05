@@ -37,6 +37,13 @@ class Matchmaking extends React.Component {
 
     componentWillUnmount() {
         clearInterval(this.interval);
+
+        const token = (new Cookies()).get('token');
+        fetch('http://robots-game-api.local/v1/player/game', {
+            method: 'DELETE',
+            mode: 'cors',
+            headers: {Authorization: 'Bearer ' + token}
+        });
     }
 
     render() {

@@ -50,6 +50,8 @@ class Register extends React.Component {
 
                 response.messages.map(function (message) {
                     errors[message.field].push(message.message);
+
+                    return message;
                 });
 
                 this.setState({errors: errors});
