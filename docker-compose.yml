@@ -1,0 +1,16 @@
+version: "3.0"
+services:
+  robots-game-app:
+    container_name: robots-game-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ".:/app"
+      - "/app/node_modules"
+    networks:
+      - test-network
+networks:
+  test-network:
