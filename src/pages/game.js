@@ -1,6 +1,6 @@
 import React from "react";
 import Img from "react-image";
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import {Cookies} from "react-cookie";
 
 function Players(props) {
@@ -54,7 +54,7 @@ class Game extends React.Component {
         this.state = {
             game: null
         };
-        this.interval = 0
+        this.interval = 0;
     }
 
     componentDidMount() {
@@ -66,24 +66,22 @@ class Game extends React.Component {
                 headers: {Authorization: 'Bearer ' + token}
             });
             const json = await response.json();
-
             this.setState({game: json});
         }, 500);
     }
 
     componentWillUnmount() {
-        clearInterval(this.interval);
-
-        const token = (new Cookies()).get('token');
-        fetch('http://robots-game-api.local/v1/player/game', {
-            method: 'DELETE',
-            mode: 'cors',
-            headers: {Authorization: 'Bearer ' + token}
-        });
+       clearInterval(this.interval);
     }
 
     render() {
         const game = this.state.game ?? null;
+
+        if (game && game.isEnded) {
+            (new Cookies()).set('token', this.state.token);
+
+            return <Redirect to='/'/>
+        }
 
         return (
             <React.Fragment>
@@ -92,9 +90,9 @@ class Game extends React.Component {
                     <Img className="player" src="/images/blue_robot_left.png"/>
                     <Img className="player" src="/images/red_robot_right.png"/>
                 </div>
-                {game ? <Players players={game.players}/> : null}
+                {game ? <Players players={game.players??[]}/> : null}
                 <div className="history">
-                    {game ? <Rounds rounds={game.rounds}/> : null}
+                    {game ? <Rounds rounds={game.rounds??[]}/> : null}
                 </div>
             </React.Fragment>
         );

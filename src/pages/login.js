@@ -42,7 +42,7 @@ class Login extends React.Component {
         }).then(function (response) {
             return response.json();
         }).then((response) => {
-            if (response.messages) {
+            if (response.messages ?? false) {
                 let errors = {
                     username: [],
                     password: []
@@ -55,7 +55,7 @@ class Login extends React.Component {
                 });
 
                 this.setState({errors: errors});
-            } else if (response.token) {
+            } else if (response.token ?? false) {
                 this.setState({
                     token: response.token,
                     errors: {
@@ -71,8 +71,11 @@ class Login extends React.Component {
     }
 
     render() {
-        if (this.state.token) {
-            (new Cookies()).set('token', this.state.token);
+        if (this.state.token !== '') {
+            let cookies = new Cookies();
+
+            cookies.remove('token');
+            cookies.set('token', this.state.token);
 
             return <Redirect to='/'/>
         }

@@ -38,18 +38,19 @@ class Matchmaking extends React.Component {
     componentWillUnmount() {
         clearInterval(this.interval);
 
-        const token = (new Cookies()).get('token');
-        fetch('http://robots-game-api.local/v1/player/game', {
-            method: 'DELETE',
-            mode: 'cors',
-            headers: {Authorization: 'Bearer ' + token}
-        });
+        console.log(this.props.dataUnsaved);
+        // if (!this.isActive()) {
+        //     const token = (new Cookies()).get('token');
+        //     fetch('http://robots-game-api.local/v1/player/game', {
+        //         method: 'DELETE',
+        //         mode: 'cors',
+        //         headers: {Authorization: 'Bearer ' + token}
+        //     });
+        // }
     }
 
     render() {
-        const game = this.state.game ?? null;
-
-        if (game && (game.isStarted ?? false)) {
+        if (this.isActive()) {
             return <Redirect to='/game'/>
         }
 
@@ -63,6 +64,12 @@ class Matchmaking extends React.Component {
                 </h1>
             </React.Fragment>
         );
+    }
+
+    isActive() {
+        const game = this.state.game ?? null;
+
+        return game && (game.isStarted ?? false);
     }
 }
 
