@@ -1,9 +1,11 @@
-import React from "react";
+import React, {useCallback} from "react";
 
 export class Progress extends React.Component {
     constructor(props) {
         super(props);
 
+        this.handler = props.handler ?? (() => {
+        });
         this.maxDots = props.maxDots ?? 3;
         this.timeout = props.timeout ?? 500;
         this.message = props.message ?? 'Loading';
@@ -20,6 +22,7 @@ export class Progress extends React.Component {
                 dots = 0;
             }
 
+            this.handler();
             this.setState({dots: dots})
         }, this.timeout);
     }
@@ -30,7 +33,8 @@ export class Progress extends React.Component {
 
     render() {
         const message = this.message;
+        const length = message.length + this.state.dots;
 
-        return (<p>{message.padEnd(message.length + this.state.dots, '.')}</p>);
+        return (<p>{message.padEnd(length, '.')}</p>);
     }
 }
