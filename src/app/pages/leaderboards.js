@@ -1,5 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
+const apiUrl = 'http://robots-game-api.local';
 
 class Leaderboards extends React.Component {
     constructor(props) {
@@ -19,7 +20,7 @@ class Leaderboards extends React.Component {
         const page = parseInt(this.props.match.params.page ?? '1');
         const limit = this.state.limit;
         const offset = this.state.limit * page;
-        const response = await fetch('http://robots-game-api.local/v1/leaderboards?offset=' + offset + '&limit=' + limit, {
+        const response = await fetch(apiUrl + '/v1/leaderboards?offset=' + offset + '&limit=' + limit, {
             method: 'GET',
             mode: 'cors',
         });

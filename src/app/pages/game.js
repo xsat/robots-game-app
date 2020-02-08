@@ -2,6 +2,7 @@ import React from "react";
 import Img from "react-image";
 import {Link, Redirect} from "react-router-dom";
 import {Cookies} from "react-cookie";
+const apiUrl = 'http://robots-game-api.local';
 
 function Players(props) {
     const players = props.players;
@@ -60,7 +61,7 @@ class Game extends React.Component {
     componentDidMount() {
         this.interval = setInterval(async () => {
             const token = (new Cookies()).get('token');
-            const response = await fetch('http://robots-game-api.local/v1/player/game', {
+            const response = await fetch(apiUrl + '/v1/player/game', {
                 method: 'PUT',
                 mode: 'cors',
                 headers: {Authorization: 'Bearer ' + token}
@@ -71,7 +72,7 @@ class Game extends React.Component {
     }
 
     componentWillUnmount() {
-       clearInterval(this.interval);
+        clearInterval(this.interval);
     }
 
     render() {
@@ -90,9 +91,9 @@ class Game extends React.Component {
                     <Img className="player" src="/images/blue_robot_left.png"/>
                     <Img className="player" src="/images/red_robot_right.png"/>
                 </div>
-                {game ? <Players players={game.players??[]}/> : null}
+                {game ? <Players players={game.players ?? []}/> : null}
                 <div className="history">
-                    {game ? <Rounds rounds={game.rounds??[]}/> : null}
+                    {game ? <Rounds rounds={game.rounds ?? []}/> : null}
                 </div>
             </React.Fragment>
         );

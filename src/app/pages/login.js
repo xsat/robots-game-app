@@ -2,8 +2,9 @@ import React from "react";
 import Messages from "../messages";
 import {Cookies} from "react-cookie";
 import {Link, Redirect} from "react-router-dom";
+const apiUrl = 'http://robots-game-api.local';
 
-class Register extends React.Component {
+class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -29,7 +30,7 @@ class Register extends React.Component {
     }
 
     handleSubmit(event) {
-        fetch('http://robots-game-api.local/v1/player', {
+        fetch(apiUrl + '/v1/login', {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -74,6 +75,7 @@ class Register extends React.Component {
         if (this.state.token !== '') {
             let cookies = new Cookies();
 
+
             cookies.remove('token');
             cookies.set('token', this.state.token);
 
@@ -82,9 +84,9 @@ class Register extends React.Component {
 
         return (
             <React.Fragment>
-                <Link to="/login">Sign In</Link> | <Link
+                <Link to="/register">Sign Up</Link> | <Link
                 to="/leaderboards">Leaderboards</Link>
-                <h1>Sign Up</h1>
+                <h1>Sign In</h1>
                 <form onSubmit={this.handleSubmit}>
                     <ul>
                         <li>
@@ -104,7 +106,7 @@ class Register extends React.Component {
                                       messages={this.state.errors.password}/>
                         </li>
                         <li>
-                            <input type="submit" value="Sign Up"/>
+                            <input type="submit" value="Sign In"/>
                         </li>
                     </ul>
                 </form>
@@ -113,4 +115,4 @@ class Register extends React.Component {
     }
 }
 
-export default Register;
+export default Login;

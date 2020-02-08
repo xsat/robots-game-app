@@ -1,6 +1,7 @@
 import React from "react";
 import {Link, Redirect} from "react-router-dom";
 import {Cookies} from "react-cookie";
+const apiUrl = 'http://robots-game-api.local';
 
 class Matchmaking extends React.Component {
     constructor(props) {
@@ -21,7 +22,7 @@ class Matchmaking extends React.Component {
             }
 
             const token = (new Cookies()).get('token');
-            const response = await fetch('http://robots-game-api.local/v1/player/game', {
+            const response = await fetch(apiUrl + '/v1/player/game', {
                 method: 'POST',
                 mode: 'cors',
                 headers: {Authorization: 'Bearer ' + token}
@@ -37,16 +38,6 @@ class Matchmaking extends React.Component {
 
     componentWillUnmount() {
         clearInterval(this.interval);
-
-        console.log(this.props.dataUnsaved);
-        // if (!this.isActive()) {
-        //     const token = (new Cookies()).get('token');
-        //     fetch('http://robots-game-api.local/v1/player/game', {
-        //         method: 'DELETE',
-        //         mode: 'cors',
-        //         headers: {Authorization: 'Bearer ' + token}
-        //     });
-        // }
     }
 
     render() {
