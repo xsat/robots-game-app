@@ -3,7 +3,7 @@ import {BrowserRouter, Switch} from "react-router-dom";
 import {Lobby, Login} from "./pages";
 import {Progress} from "./components";
 import {Cookies} from "react-cookie";
-import {Api} from "./api";
+import {GameApi} from "./game-api";
 import {PrivateRoute, PublicRoute} from "./routes";
 
 class Game extends React.Component {
@@ -14,11 +14,11 @@ class Game extends React.Component {
             isAuthorized: false
         };
         this.cookies = new Cookies();
-        this.api = new Api({cookies: this.cookies});
+        this.gameApi = new GameApi({cookies: this.cookies});
     }
 
     connect() {
-        this.api.privateRequest('/v1/player').then((response) => {
+        this.gameApi.privateRequest('/v1/player').then((response) => {
             this.setState({
                 isAuthorized: response.playerId !== undefined,
                 isLoaded: true

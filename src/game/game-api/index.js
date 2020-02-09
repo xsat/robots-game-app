@@ -1,7 +1,7 @@
 import {Cookies} from "react-cookie";
-import {API_URL, TOKEN_KEY} from "../constants";
+import {GAME_API_URL, TOKEN_KEY} from "../constants";
 
-export class Api {
+export class GameApi {
     constructor(props) {
         this.cookies = props.cookies ?? new Cookies();
     }
@@ -10,19 +10,19 @@ export class Api {
         const token = this.cookies.get(TOKEN_KEY);
         return this.publicRequest(
             path,
-            Object.assign(data, {
+            Object.assign( {
                 headers: {Authorization: 'Bearer ' + token}
-            })
+            }, data)
         );
     }
 
     publicRequest(path, data = {}) {
         return this.request(
-            API_URL + path,
-            Object.assign(data, {
+            GAME_API_URL + path,
+            Object.assign( {
                 method: 'GET',
                 mode: 'cors'
-            })
+            }, data)
         );
     }
 

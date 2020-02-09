@@ -48,9 +48,13 @@ label, input, li, a, p, table {
     color: #fff;
 }
 
-p {
+p, h1 {
     padding: 0.5em;
     margin: 0;
+}
+
+h1 {
+    font-size: 2em;
 }
 
 table {
