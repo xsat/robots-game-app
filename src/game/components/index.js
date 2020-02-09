@@ -1,3 +1,4 @@
 export * from "./Common";
-export * from "./Progress";
 export * from "./Messages";
+export * from "./Pagination";
+export * from "./Progress";

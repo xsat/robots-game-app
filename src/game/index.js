@@ -1,6 +1,6 @@
 import React from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import {Lobby, Logout, SignIn, SignUp} from "./pages";
+import {Leaderboards, Lobby, Logout, SignUp} from "./pages";
 import {Common, Progress} from "./components";
 import {PrivateRoute} from "./routes";
 
@@ -45,10 +45,16 @@ export default class Game extends Common {
                             exact path="/logout"
                             isAuthorized={this.state.isAuthorized}
                             component={Logout}/>
+                        <PrivateRoute
+                            exact path="/logout"
+                            isAuthorized={this.state.isAuthorized}
+                            component={Logout}/>
                         <Route
-                            exact path="/sign-in"
-                            action="/v1/login"
-                            component={SignIn}/>
+                            exact path="/leaderboards/:page"
+                            component={Leaderboards}/>
+                        <Route
+                            exact path="/leaderboards"
+                            component={Leaderboards}/>
                         <Route
                             exact path="/sign-up"
                             component={SignUp}/>
