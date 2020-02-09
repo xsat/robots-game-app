@@ -1,6 +1,6 @@
 import React from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import {Leaderboards, Lobby, Logout, SignUp} from "./pages";
+import {Leaderboards, Lobby, Logout, SignIn, SignUp} from "./pages";
 import {Common, Progress} from "./components";
 import {PrivateRoute} from "./routes";
 
@@ -58,6 +58,9 @@ export default class Game extends Common {
                         <Route
                             exact path="/sign-up"
                             component={SignUp}/>
+                        <Route
+                            exact path="/sign-in"
+                            component={SignIn}/>
                     </Switch>
                 </BrowserRouter>
             </React.Fragment>

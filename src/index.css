@@ -62,6 +62,13 @@ table {
     border-spacing: 0.1em;
 }
 
+.breadcrumbs > h1 {
+    font-size: 1em;
+    padding: 0;
+    display: inline;
+    font-weight: normal;
+}
+
 .inactive {
     opacity: 0.1;
 }
