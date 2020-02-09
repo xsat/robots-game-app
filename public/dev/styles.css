@@ -80,10 +80,14 @@ table {
 }
 
 .health {
-    width: 50%;
+    width: 100%;
     background: white;
     display: inline-block;
     font-weight: bold;
+}
+
+.overloaded .health {
+    background: yellow;
 }
 
 .damage {
@@ -92,10 +96,17 @@ table {
     display: inline-block;
 }
 
+.damage.overloaded {
+    border-color: yellow;
+}
+
 .red {
     color: lightcoral;
 }
 
 .blue {
     color: lightskyblue;
+}
+.yellow {
+    color: yellow;
 }

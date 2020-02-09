@@ -101,10 +101,6 @@ table {
     text-align: center;
 }
 
-.player {
-    max-width: 50%;
-}
-
 .history {
     max-height: 300px;
     overflow-y: auto;
@@ -129,16 +125,23 @@ table {
 }
 
 .health {
-    width: 50%;
+    width: 100%;
     background: white;
     display: inline-block;
     font-weight: bold;
 }
+.overloaded .health {
+     background: yellow;
+ }
 
 .damage {
     width: 100%;
     border: 1px solid white;
     display: inline-block;
+}
+
+.damage.overloaded {
+    border-color: yellow;
 }
 
 .red {
@@ -147,4 +150,8 @@ table {
 
 .blue {
     color: lightskyblue;
+}
+
+.yellow {
+    color: yellow;
 }

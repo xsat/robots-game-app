@@ -1,5 +1,5 @@
 import React from "react";
-import {Common, Progress} from "../components";
+import {Common, Player, Progress} from "../components";
 import {Link} from "react-router-dom";
 import {GAME_KEY} from "../constants";
 
@@ -34,6 +34,11 @@ export class Battle extends Common {
     }
 
     render() {
+        const game = this.state.game ?? {};
+        const players = game.players ?? [];
+
+        console.log(players);
+
         return (
             <React.Fragment>
                 <div className="breadcrumbs">
@@ -43,6 +48,16 @@ export class Battle extends Common {
                     <Progress message="Connecting" handler={() => {
                         this.fight();
                     }}/>
+
+                    <table>
+                        <tbody>
+                        <tr key="players">
+                            {players.map((player) => {
+                                return <Player player={player}/>
+                            })}
+                        </tr>
+                        </tbody>
+                    </table>
                 </div>
             </React.Fragment>
         );
