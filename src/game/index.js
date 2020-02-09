@@ -1,20 +1,16 @@
 import React from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
-import {Lobby, Login} from "./pages";
-import {Progress} from "./components";
-import {Cookies} from "react-cookie";
-import {GameApi} from "./game-api";
+import {Lobby, Logout, SignIn, SignUp} from "./pages";
+import {Common, Progress} from "./components";
 import {PrivateRoute} from "./routes";
 
-class Game extends React.Component {
+export default class Game extends Common {
     constructor(props) {
         super(props);
         this.state = {
             isLoaded: false,
             isAuthorized: false
         };
-        this.cookies = new Cookies();
-        this.gameApi = new GameApi({cookies: this.cookies});
     }
 
     connect() {
@@ -41,16 +37,24 @@ class Game extends React.Component {
             <React.Fragment>
                 <BrowserRouter>
                     <Switch>
-                        <PrivateRoute exact path="/"
-                                      isAuthorized={this.state.isAuthorized}
-                                      component={Lobby}/>
-                        <Route path="/login"
-                               component={Login}/>
+                        <PrivateRoute
+                            exact path="/"
+                            isAuthorized={this.state.isAuthorized}
+                            component={Lobby}/>
+                        <PrivateRoute
+                            exact path="/logout"
+                            isAuthorized={this.state.isAuthorized}
+                            component={Logout}/>
+                        <Route
+                            exact path="/sign-in"
+                            action="/v1/login"
+                            component={SignIn}/>
+                        <Route
+                            exact path="/sign-up"
+                            component={SignUp}/>
                     </Switch>
                 </BrowserRouter>
             </React.Fragment>
         );
     }
 }
-
-export default Game;

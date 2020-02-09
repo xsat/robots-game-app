@@ -6,7 +6,7 @@ export class PrivateRoute extends Route {
         const isAuthorized = this.props.isAuthorized ?? false;
 
         if (isAuthorized !== true) {
-            return <Redirect to={{pathname: "/login"}}/>;
+            return <Redirect to="/sign-in"/>;
         }
 
         return super.render();

@@ -1,30 +1,30 @@
 import React from "react";
-import {Cookies} from "react-cookie";
-import {GameApi} from "../game-api";
-import {Messages} from "../components";
+import {Common, Messages} from "../components";
 import {TOKEN_KEY} from "../constants";
 
-export class Login extends React.Component {
+export class Form extends Common {
     constructor(props) {
         super(props);
         this.state = {
             data: {},
             errors: {}
         };
-        this.cookies = props.cookies ?? new Cookies();
-        this.gameApi = props.gameApi ?? new GameApi({cookies: this.cookies});
+        this.action = props.action ?? "";
+        this.submit = props.submit ?? "Submit";
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange(event) {
+        event.preventDefault();
+
         const name = event.target.name;
         const value = event.target.value;
 
         this.setState({
             data: Object.assign(
+                this.state.data,
                 {[name]: value},
-                this.state.data
             )
         });
     }
@@ -32,7 +32,7 @@ export class Login extends React.Component {
     handleSubmit(event) {
         event.preventDefault();
 
-        this.gameApi.publicRequest("/v1/login", {
+        this.gameApi.publicRequest(this.action, {
             method: "POST",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(this.state.data)
@@ -71,7 +71,8 @@ export class Login extends React.Component {
                                       items={this.state.errors.password ?? []}/>
                         </li>
                         <li>
-                            <input type="submit" value="Login"/>
+                            <input type="submit"
+                                   value={this.submit}/>
                         </li>
                     </ul>
                 </form>
