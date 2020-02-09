@@ -1,4 +1,4 @@
-import React, {useCallback} from "react";
+import React from "react";
 
 export class Progress extends React.Component {
     constructor(props) {
