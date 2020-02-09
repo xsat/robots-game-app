@@ -1,4 +1,5 @@
 export * from "./Achievements";
+export * from "./Battle";
 export * from "./Form";
 export * from "./Leaderboards";
 export * from "./Lobby";

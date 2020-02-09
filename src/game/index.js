@@ -1,6 +1,8 @@
 import React from "react";
 import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
 import {
+    Achievements,
+    Battle,
     Leaderboards,
     Lobby,
     Logout,
@@ -64,6 +66,14 @@ export default class Game extends Common {
                             exact path="/matchmaking"
                             isAuthorized={this.state.isAuthorized}
                             component={Matchmaking}/>
+                        <PrivateRoute
+                            exact path="/battle"
+                            isAuthorized={this.state.isAuthorized}
+                            component={Battle}/>
+                        <PrivateRoute
+                            exact path="/achievements"
+                            isAuthorized={this.state.isAuthorized}
+                            component={Achievements}/>
                         <Route
                             exact path="/leaderboards/:page"
                             component={Leaderboards}/>

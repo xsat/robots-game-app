@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="theme-color" content="#000000"/>
     <meta
             name="description"
             content="Web site created using create-react-app"
@@ -23,24 +23,127 @@
 
     <form>
         <ul>
-            <li><label for="username">Username</label>: <input id="username" type="text" name="username" /></li>
-            <li><label for="password">Password</label>: <input id="password" type="password" name="password" /><p class="error">Password or username is invalid.</p></li>
+            <li><label for="username">Username</label>: <input id="username"
+                                                               type="text"
+                                                               name="username"/>
+            </li>
+            <li><label for="password">Password</label>: <input id="password"
+                                                               type="password"
+                                                               name="password"/>
+                <p class="error">Password or username is invalid.</p></li>
             <li><input type="submit" value="Log In"></li>
         </ul>
     </form>
 
     <table>
         <tbody>
-            <tr>
-                <td><img src="../icon1.jpg" class="inactive" alt="icon" title="You are cool"></td>
-                <td><img src="../icon1.jpg" alt="icon"></td>
-                <td><img src="../icon1.jpg" class="inactive" alt="icon" title="You are cool"></td>
-            </tr>
-            <tr>
-                <td><img src="../icon1.jpg" class="inactive" alt="icon" title="You are cool"></td>
-                <td><img src="../icon1.jpg" class="inactive" alt="icon" title="You are cool"></td>
-                <td><img src="../icon1.jpg" class="inactive" alt="icon" title="You are cool"></td>
-            </tr>
+        <tr>
+            <td><img src="../icon1.jpg" class="inactive" alt="icon"
+                     title="You are cool"></td>
+            <td><img src="../icon1.jpg" alt="icon"></td>
+            <td><img src="../icon1.jpg" class="inactive" alt="icon"
+                     title="You are cool"></td>
+        </tr>
+        <tr>
+            <td><img src="../icon1.jpg" class="inactive" alt="icon"
+                     title="You are cool"></td>
+            <td><img src="../icon1.jpg" class="inactive" alt="icon"
+                     title="You are cool"></td>
+            <td><img src="../icon1.jpg" class="inactive" alt="icon"
+                     title="You are cool"></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <table>
+        <tbody>
+        <tr>
+            <td class="left">
+                <div class="player">
+                    <img src="../images/blue_robot_left.png"/>
+                    <div>
+                        Player 1
+                        <div class="damage"><div class="health blue">100</div></div>
+                    </div>
+                </div>
+            </td>
+            <td class="right inactive">
+                <div class="player">
+                    <img src="../images/red_robot_right.png"/>
+                    <div>
+                        Player 2
+                        <div class="damage"><div class="health red">100</div></div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p>
+                    Round 3
+                </p>
+                <ul>
+                    <li>
+                        <b class="blue">Player 1</b> was defeat <b class="red">Player 2</b>
+                    </li>
+                    <li>
+                        <b class="blue">Player 1</b> lunch a rocket
+                        into <b class="red">Player 2</b> with
+                        the <b class="blue">100</b> speed and
+                        deal <b class="blue">critical</b> damage
+                    </li>
+                    <li>
+                        <b class="red">Player 2</b> lunch a rocket
+                        into <b class="blue">Player 1</b> with
+                        the <b class="red">14</b> speed and
+                        deal <b class="red">15</b> damage
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p>
+                Round 2
+                </p>
+                <ul>
+                    <li>
+                        <b class="blue">Player 1</b> lunch a rocket
+                        into <b class="red">Player 2</b> with
+                        the <b class="blue">100</b> speed and
+                        deal <b class="blue">15</b> damage
+                    </li>
+                    <li>
+                        <b class="red">Player 2</b> lunch a rocket
+                        into <b class="blue">Player 1</b> with
+                        the <b class="red">14</b> speed and
+                        deal <b class="red">13</b> damage
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <p>
+                    Round 1
+                </p>
+                <ul>
+                    <li>
+                        <b class="blue">Player 1</b> lunch a rocket
+                        into <b class="red">Player 2</b> with
+                        the <b class="blue">100</b> speed and
+                        deal <b class="blue">15</b> damage
+                    </li>
+                    <li>
+                        <b class="red">Player 2</b> lunch a rocket
+                        into <b class="blue">Player 1</b> with
+                        the <b class="red">14</b> speed and
+                        deal <b class="red">13</b> damage
+                    </li>
+                </ul>
+            </td>
+        </tr>
         </tbody>
     </table>
 
@@ -51,9 +154,9 @@
     </ul>
 
     <p class="center">
-    <a href="#">next</a>
+        <a href="#">next</a>
         ...
-    <a href="#">prev</a>
+        <a href="#">prev</a>
     </p>
 </div>
 </body>

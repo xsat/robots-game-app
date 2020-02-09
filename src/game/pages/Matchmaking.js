@@ -1,6 +1,7 @@
 import React from "react";
 import {Common, Progress} from "../components";
 import {Link} from "react-router-dom";
+import {GAME_KEY} from "../constants";
 
 export class Matchmaking extends Common {
     constructor(props) {
@@ -13,8 +14,10 @@ export class Matchmaking extends Common {
             "/v1/player/game",
             {method: "POST"}
         ).then((response) => {
-            if (response.game.isStarted ?? false) {
-                this.props.history.push("battle");
+            if ((response.isStarted ?? false) && (response.gameId ?? false)) {
+                this.cookies.remove(GAME_KEY);
+                this.cookies.set(GAME_KEY, response.gameId);
+                this.props.history.push("/battle");
             }
         }).catch(() => {
             this.setState({isLoaded: false});
