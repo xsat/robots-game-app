@@ -11,7 +11,7 @@ export class GameApi {
         return this.publicRequest(
             path,
             Object.assign( {
-                headers: {Authorization: 'Bearer ' + token}
+                headers: {Authorization: "Bearer " + token}
             }, data)
         );
     }
@@ -20,8 +20,8 @@ export class GameApi {
         return this.request(
             GAME_API_URL + path,
             Object.assign( {
-                method: 'GET',
-                mode: 'cors'
+                method: "GET",
+                mode: "cors"
             }, data)
         );
     }

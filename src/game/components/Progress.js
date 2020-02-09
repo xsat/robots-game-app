@@ -8,7 +8,7 @@ export class Progress extends React.Component {
         });
         this.maxDots = props.maxDots ?? 3;
         this.timeout = props.timeout ?? 500;
-        this.message = props.message ?? 'Loading';
+        this.message = props.message ?? "Loading";
         this.interval = 0;
 
         this.state = {dots: 0};
@@ -35,6 +35,6 @@ export class Progress extends React.Component {
         const message = this.message;
         const length = message.length + this.state.dots;
 
-        return (<p>{message.padEnd(length, '.')}</p>);
+        return (<p>{message.padEnd(length, ".")}</p>);
     }
 }

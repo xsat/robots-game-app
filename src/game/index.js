@@ -1,10 +1,10 @@
 import React from "react";
-import {BrowserRouter, Switch} from "react-router-dom";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
 import {Lobby, Login} from "./pages";
 import {Progress} from "./components";
 import {Cookies} from "react-cookie";
 import {GameApi} from "./game-api";
-import {PrivateRoute, PublicRoute} from "./routes";
+import {PrivateRoute} from "./routes";
 
 class Game extends React.Component {
     constructor(props) {
@@ -18,7 +18,7 @@ class Game extends React.Component {
     }
 
     connect() {
-        this.gameApi.privateRequest('/v1/player').then((response) => {
+        this.gameApi.privateRequest("/v1/player").then((response) => {
             this.setState({
                 isAuthorized: response.playerId !== undefined,
                 isLoaded: true
@@ -41,12 +41,11 @@ class Game extends React.Component {
             <React.Fragment>
                 <BrowserRouter>
                     <Switch>
-                        <PublicRoute path="/login"
-                                     isAuthorized={this.state.isAuthorized}
-                                     component={Login}/>
-                        <PrivateRoute path="/"
+                        <PrivateRoute exact path="/"
                                       isAuthorized={this.state.isAuthorized}
                                       component={Lobby}/>
+                        <Route path="/login"
+                               component={Login}/>
                     </Switch>
                 </BrowserRouter>
             </React.Fragment>
