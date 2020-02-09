@@ -1,8 +1,16 @@
 import React from "react";
-import {BrowserRouter, Route, Switch} from "react-router-dom";
-import {Leaderboards, Lobby, Logout, SignIn, SignUp} from "./pages";
+import {BrowserRouter, Link, Route, Switch} from "react-router-dom";
+import {
+    Leaderboards,
+    Lobby,
+    Logout,
+    Matchmaking,
+    SignIn,
+    SignUp
+} from "./pages";
 import {Common, Progress} from "./components";
 import {PrivateRoute} from "./routes";
+import Img from "react-image";
 
 export default class Game extends Common {
     constructor(props) {
@@ -36,6 +44,9 @@ export default class Game extends Common {
         return (
             <React.Fragment>
                 <BrowserRouter>
+                    <Link to="/" className="logo">
+                        <Img src="/images/logo.png"/> Robots Factory
+                    </Link>
                     <Switch>
                         <PrivateRoute
                             exact path="/"
@@ -49,6 +60,10 @@ export default class Game extends Common {
                             exact path="/logout"
                             isAuthorized={this.state.isAuthorized}
                             component={Logout}/>
+                        <PrivateRoute
+                            exact path="/matchmaking"
+                            isAuthorized={this.state.isAuthorized}
+                            component={Matchmaking}/>
                         <Route
                             exact path="/leaderboards/:page"
                             component={Leaderboards}/>

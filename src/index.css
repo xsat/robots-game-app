@@ -42,7 +42,7 @@ input[type="submit"]:hover {
     cursor: pointer;
 }
 
-label, input, li, a, p, table {
+label, input, li, a, p, div, table {
     font-family: monospace;
     font-size: 1em;
     color: #fff;
@@ -60,6 +60,11 @@ h1 {
 table {
     border: none;
     border-spacing: 0.1em;
+}
+.breadcrumbs {
+    padding: 0.5em;
+    margin: 0;
+    display: inline;
 }
 
 .breadcrumbs > h1 {
@@ -102,4 +107,10 @@ table {
 .history {
     max-height: 300px;
     overflow-y: auto;
+}
+
+.logo {
+    font-size: 1.5em;
+    display: block;
+    text-decoration: none;
 }

@@ -5,9 +5,9 @@ export class Lobby extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <p className="breadcrumbs">
+                <div className="breadcrumbs">
                     <Link to="/logout">Logout</Link> | <h1>Lobby</h1>
-                </p>
+                </div>
                 <menu>
                     <ul>
                         <li>

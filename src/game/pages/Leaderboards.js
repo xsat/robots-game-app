@@ -8,10 +8,10 @@ export class Leaderboards extends Common {
 
         return (
             <React.Fragment>
-                <p className="breadcrumbs">
+                <div className="breadcrumbs">
                     <Link to="/logout">Logout</Link> | <Link
                     to="/">Lobby</Link> > <h1>Leaderboards</h1>
-                </p>
+                </div>
                 <Pagination url="/leaderboards" total={100} page={page}/>
             </React.Fragment>
         );

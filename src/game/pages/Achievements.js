@@ -6,10 +6,10 @@ export class Achievements extends Common {
     render() {
         return (
             <React.Fragment>
-                <p className="breadcrumbs">
+                <div className="breadcrumbs">
                     <Link to="/logout">Logout</Link> | <Link
                     to="/">Lobby</Link> > <h1>Achievements</h1>
-                </p>
+                </div>
             </React.Fragment>
         );
     }

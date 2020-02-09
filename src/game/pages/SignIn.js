@@ -11,9 +11,9 @@ export class SignIn extends Form {
     render() {
         return (
             <React.Fragment>
-                <p className="breadcrumbs">
+                <div className="breadcrumbs">
                     <Link to="/sign-up">Sign Up</Link> | <h1>Sign In</h1>
-                </p>
+                </div>
                 {super.render()}
             </React.Fragment>
         );
