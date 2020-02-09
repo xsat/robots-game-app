@@ -1,5 +1,5 @@
 import React from "react";
-import {Common, Player, Progress} from "../components";
+import {Common, Player, Progress, Round} from "../components";
 import {Link} from "react-router-dom";
 import {GAME_KEY} from "../constants";
 
@@ -36,8 +36,13 @@ export class Battle extends Common {
     render() {
         const game = this.state.game ?? {};
         const players = game.players ?? [];
+        const rounds = (game.rounds ?? []).reverse();
 
-        console.log(players);
+        let colors = {};
+
+        for (const player of players) {
+            colors[player.playerId] = player.color;
+        }
 
         return (
             <React.Fragment>
@@ -56,6 +61,9 @@ export class Battle extends Common {
                                 return <Player player={player}/>
                             })}
                         </tr>
+                        {rounds.map((round) => {
+                            return <Round round={round} colors={colors}/>
+                        })}
                         </tbody>
                     </table>
                 </div>
