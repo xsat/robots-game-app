@@ -44,7 +44,9 @@ export class Form extends Common {
             } else if (response.token ?? false) {
                 this.cookies.remove(TOKEN_KEY);
                 this.cookies.set(TOKEN_KEY, response.token);
-                this.props.history.push("/");
+
+                window.location.href = '/'; // @todo remove this solution
+                // this.props.history.push("/");
             }
         });
     }
