@@ -50,9 +50,11 @@ export class Battle extends Common {
                     <Link to="/logout">Logout</Link> | <Link
                     to="/">Lobby</Link> > <h1>Battle</h1>
 
-                    <Progress message="Connecting" handler={() => {
-                        this.fight();
-                    }}/>
+                    <Progress
+                        message="Fighting"
+                        handler={() => {
+                            this.fight();
+                        }}/>
 
                     <table>
                         <tbody>

@@ -37,7 +37,7 @@ export class Player extends React.Component {
         const percent = this.percent(condition, health);
 
         return (
-            <td className={position} key={position}>
+            <td className={position} key={`player_${position}`}>
                 <div className="player">
                     <Img src={this.image(color, position)}/>
                     <div>{player.playerId ?? null}</div>
