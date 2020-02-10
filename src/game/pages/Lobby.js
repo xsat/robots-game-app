@@ -14,7 +14,7 @@ export class Lobby extends React.Component {
                             <Link to="/matchmaking">Matchmaking</Link>
                         </li>
                         <li>
-                            <Link to="/achievements">Achievements</Link>
+                            <Link to="/achievements">Achievements (Under Construction)</Link>
                         </li>
                         <li>
                             <Link to="/leaderboards">Leaderboards</Link>
