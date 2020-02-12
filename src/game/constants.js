@@ -1,3 +1,5 @@
 export const GAME_API_URL = process.env.GAME_API_URL ?? "http://localhost:8089";
 export const TOKEN_KEY = "token";
 export const GAME_KEY = "game";
+
+console.log(process.env, GAME_API_URL);
